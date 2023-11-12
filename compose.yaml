@@ -1,0 +1,31 @@
+services:
+  docs_service_api:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/docs_service_api.dockerfile
+      target: dev
+    environment:
+      PORT: ${DOCS_SERVICE_PORT}
+      DOCS_SERVICE_ROUTE: ${DOCS_SERVICE_ROUTE}
+      REDIS_PORT: ${REDIS_PORT}
+      REDIS_HOST: 'editor_service_redis'
+      QUESTION_SERVICE_API: 'http://question_service_api:9001/question-service'
+      MQ_USER: ${MQ_USER}
+      MQ_PASSWORD: ${MQ_PASSWORD}
+      MQ_HOST: 'room_service_mq'
+      MQ_EXCHANGE_NAME: ${MQ_EXCHANGE_NAME}
+      MQ_QUEUE_NAME: ${MQ_QUEUE_NAME}
+      NODE_ENV: ${NODE_ENV}
+    networks:
+      - peerprep_network
+    ports:
+      - '${DOCS_SERVICE_PORT}:${DOCS_SERVICE_PORT}'
+    restart: unless-stopped
+    volumes:
+      - ./node_modules:/docs_service_api/node_modules
+      - ./src:/docs_service_api/src
+
+networks:
+  peerprep_network:
+      external: true
+      name: peerprep
