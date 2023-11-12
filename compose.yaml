@@ -2,7 +2,7 @@ services:
   docs_service_api:
     build:
       context: .
-      dockerfile: ./dockerfiles/docs_service_api.dockerfile
+      dockerfile: ./dockerfiles/api_dev.dockerfile
       target: dev
     environment:
       PORT: ${DOCS_SERVICE_PORT}
