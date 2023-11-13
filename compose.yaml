@@ -9,6 +9,9 @@ services:
       DOCS_SERVICE_ROUTE: ${DOCS_SERVICE_ROUTE}
       REDIS_PORT: ${REDIS_PORT}
       REDIS_HOST: ${REDIS_HOST}
+      REDIS_USERNAME: ${REDIS_USERNAME}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_DB: ${REDIS_DB}
       QUESTION_SERVICE_API: 'http://question_service_api:9001/question-service'
       MQ_USER: ${MQ_USER}
       MQ_PASSWORD: ${MQ_PASSWORD}
