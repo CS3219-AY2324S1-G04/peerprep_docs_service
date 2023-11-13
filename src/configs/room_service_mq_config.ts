@@ -7,6 +7,8 @@ const userEnv = 'MQ_USER';
 const passEnv = 'MQ_PASSWORD';
 const hostEnv = 'MQ_HOST';
 const portEnv = 'MQ_PORT';
+const vHostEnv = 'MQ_VHOST';
+const tlsEnv = 'MQ_SHOULD_USE_TLS';
 const exchangeEnv = 'MQ_EXCHANGE_NAME';
 const queueEnv = 'MQ_QUEUE_NAME';
 
@@ -16,6 +18,8 @@ const defaultHost = 'localhost';
 const defaultPort = 5672;
 const defaultExchangeName = 'room-events';
 const defaultQueueName = 'editor-service-docs-room-event-queue';
+const defaultVHost = '';
+const defaultShouldUseTls = false;
 
 export default class RoomServiceMqConfig
   implements RoomServiceMqConsumerConfig
@@ -37,8 +41,8 @@ export default class RoomServiceMqConfig
     this.exchangeName = env[exchangeEnv] ?? defaultExchangeName;
     this.queueName = env[queueEnv] ?? defaultQueueName;
 
-    this.vhost = '';
-    this.shouldUseTls = false;
+    this.vhost = env[vHostEnv] ?? defaultVHost;
+    this.shouldUseTls = env[tlsEnv] === 'true';
   }
 
   private _parseInt(v: string | undefined): number | undefined {
