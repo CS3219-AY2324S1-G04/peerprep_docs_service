@@ -19,7 +19,6 @@ const defaultPort = 5672;
 const defaultExchangeName = 'room-events';
 const defaultQueueName = 'editor-service-docs-room-event-queue';
 const defaultVHost = '';
-const defaultShouldUseTls = false;
 
 export default class RoomServiceMqConfig
   implements RoomServiceMqConsumerConfig

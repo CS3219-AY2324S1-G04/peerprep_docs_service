@@ -35,6 +35,8 @@ export default class DeleteRoomEventHandler extends RoomEventHandler {
 
       await redis.srem(DOCS_SET_KEY, room.roomId);
       await redis.publish(`${room.roomId}:${DELETE_CHANNEL}`, room.roomId);
+
+      redis.quit();
     };
   }
 }
