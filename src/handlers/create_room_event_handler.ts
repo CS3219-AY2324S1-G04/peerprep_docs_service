@@ -51,7 +51,7 @@ export default class CreateRoomEventHandler extends RoomEventHandler {
 
       await redis.sadd(DOCS_SET_KEY, room.roomId);
 
-      redis.quit()
+      redis.quit();
     };
   }
 
