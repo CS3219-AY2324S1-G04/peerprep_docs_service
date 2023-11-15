@@ -4,9 +4,8 @@ COPY package.json .
 COPY package-lock.json .
 
 FROM base AS dev
-COPY nodemon.json .
-RUN npm install
-CMD npm run start:dev
+RUN npm run install --omit=dev -y
+CMD node main.js
 
 FROM base as builder
 COPY src ./src

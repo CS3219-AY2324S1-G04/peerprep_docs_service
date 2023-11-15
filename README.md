@@ -14,6 +14,7 @@ While [Editor Service](https://github.com/CS3219-AY2324S1-G04/peerprep_editor_se
   - [Table of Contents](#table-of-contents)
   - [Requirements](#requirements)
   - [Quick Start](#quick-start)
+  - [Build Script](#build-script)
   - [Environment Variables](#environment-variables)
   - [Overview](#overview)
     - [Editor Service](#editor-service)
@@ -39,7 +40,14 @@ Docs Service requires the following services to operate correctly.
 1. Clone this repository.
 2. Configure the `.env` file (Refer to [Environment Variables](#environment-variables))
 3. Install the necessary dependencies `npm install`
-4. Build and run the docker container. `docker compose up -d`
+4. Run the [build script](#build-script).
+5. Run the docker container. `docker compose up -d`
+
+## Build Script
+
+`build_images.sh` is a build script for building the Docker images and optionally pushing them to the container registry. To get more information about the script, run:
+
+`./build_images.sh -h`
 
 ## Environment Variables
 
